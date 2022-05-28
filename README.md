@@ -9,7 +9,7 @@ jenkins,docker and ansible servers building using terraform, the advantage of th
 
 resource "aws_key_pair" "jenkinskey" {
   key_name   = "deployer-key"
-  public_key = file("your public key file here (eg: key.pub)")
+  public_key = file("your public key file name is here (eg: key.pub)")
 }
 
 # Security group creating, all traffic allow
