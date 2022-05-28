@@ -2,7 +2,7 @@
 
 resource "aws_key_pair" "jenkinskey" {
   key_name   = "deployer-key"
-  public_key = file("jenkinsproject.pub")
+  public_key = file("your public key file here (eg: key.pub)")
 }
 
 # Security group creating, all traffic allow
