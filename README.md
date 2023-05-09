@@ -81,3 +81,9 @@ resource "aws_instance" "ansible" {
   }
 }
 ```
+
+# If you want to ignore anything then, you can simply do that it by using 
+```
+echo filename >> .gitignore
+```
+
