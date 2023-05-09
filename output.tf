@@ -1,6 +1,6 @@
 output "minikubeip" {
 
-    value = "http://${aws_instance.minikube.public_ip}"
+    value = "${aws_instance.minikube.public_ip}"
   
 }
 
