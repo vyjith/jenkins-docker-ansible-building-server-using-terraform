@@ -2,7 +2,7 @@
 
 resource "aws_key_pair" "jenkinskey" {
   key_name   = "deployer-key"
-  public_key = file("your public key file here (eg: key.pub)")
+  public_key = file("vyjith.pub")
 }
 
 # Security group creating, all traffic allow
@@ -35,7 +35,7 @@ resource "aws_security_group" "allow" {
 # ec2 instance creating for jenkins project
 
 resource "aws_instance" "jenkins" {
-  ami           = data.aws_ami.amazonami.id
+  ami           = data.aws_ami.amzlinux.id
   instance_type = "t2.micro"
   key_name = aws_key_pair.jenkinskey.id
   user_data = file("jenkins.sh")
@@ -49,7 +49,7 @@ resource "aws_instance" "jenkins" {
 # ec2 instance creating for docker project
 
 resource "aws_instance" "docker" {
-  ami           = data.aws_ami.amazonami.id
+  ami           = data.aws_ami.amzlinux.id
   instance_type = "t2.micro"
   key_name = aws_key_pair.jenkinskey.id
   user_data = file("docker.sh")
@@ -63,7 +63,7 @@ resource "aws_instance" "docker" {
 # ec2 instance creating for ansible project
 
 resource "aws_instance" "ansible" {
-  ami           = data.aws_ami.amazonami.id
+  ami           = data.aws_ami.amzlinux.id
   instance_type = "t2.micro"
   key_name = aws_key_pair.jenkinskey.id
   user_data = file("ansible.sh")
