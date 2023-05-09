@@ -1,4 +1,4 @@
-# This branch is manily for installing minikube on the ec2 - ubuntu machine, then how to use this branch, just clone it by with the branchm
+# This branch is manily for installing minikube on the ec2 - ubuntu machine, then how to use this branch, just clone it by with the branch
 
 This is only for installing minikube on this server.
 ## How to get this code 
