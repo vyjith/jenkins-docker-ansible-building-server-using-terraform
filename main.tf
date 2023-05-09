@@ -29,7 +29,7 @@ resource "aws_security_group" "allow" {
   }
 
   tags = {
-    Name = "${var.jenkinsproject}-freedom"
+    Name = "${var.minikubeproject}-freedom"
   }
 }
 # ec2 instance creating for minikube
