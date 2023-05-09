@@ -4,8 +4,5 @@ variable "access_key" {}
 
 variable "secret_key" {}
 
-variable "jenkinsproject" {}
+variable "minikubeproject" {}
 
-variable "ansible_project" {}
-
-variable "docker_project" {}

@@ -32,44 +32,17 @@ resource "aws_security_group" "allow" {
     Name = "${var.jenkinsproject}-freedom"
   }
 }
-# ec2 instance creating for jenkins project
+# ec2 instance creating for minikube
 
-resource "aws_instance" "jenkins" {
-  ami           = data.aws_ami.amzlinux.id
-  instance_type = "t2.micro"
+resource "aws_instance" "minikube" {
+  ami           = "ami-02eb7a4783e7e9317"
+  instance_type = "t2.medium"
   key_name = aws_key_pair.jenkinskey.id
-  user_data = file("jenkins.sh")
+  user_data = file("minikube.sh")
   vpc_security_group_ids = [ aws_security_group.allow.id ]
 
   tags = {
-    Name = "${var.jenkinsproject}-project"
+    Name = "${var.minikubeproject}-project"
   }
 }
 
-# ec2 instance creating for docker project
-
-resource "aws_instance" "docker" {
-  ami           = data.aws_ami.amzlinux.id
-  instance_type = "t2.micro"
-  key_name = aws_key_pair.jenkinskey.id
-  user_data = file("docker.sh")
-  vpc_security_group_ids = [ aws_security_group.allow.id ]
-
-  tags = {
-    Name = "${var.docker_project}-project"
-  }
-}
-
-# ec2 instance creating for ansible project
-
-resource "aws_instance" "ansible" {
-  ami           = data.aws_ami.amzlinux.id
-  instance_type = "t2.micro"
-  key_name = aws_key_pair.jenkinskey.id
-  user_data = file("ansible.sh")
-  vpc_security_group_ids = [ aws_security_group.allow.id ]
-
-  tags = {
-    Name = "${var.ansible_project}-project"
-  }
-}
